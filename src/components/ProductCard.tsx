@@ -41,11 +41,30 @@ const ProductCard = ({
           )}
         />
         
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/30 to-transparent" />
+        {/* Overlay gradient - from top for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-foreground/70 via-foreground/20 to-transparent" />
+        
+        {/* Text overlay at top */}
+        <div className={cn(
+          "absolute top-0 left-0 right-0 p-6 md:p-8 text-center",
+          isPrimary && "p-8 md:p-10"
+        )}>
+          <h3 className={cn(
+            "card-title mb-2 text-white drop-shadow-lg",
+            isPrimary && "text-3xl md:text-4xl"
+          )}>
+            {title}
+          </h3>
+          <p className={cn(
+            "card-description text-white/90 drop-shadow-md",
+            isPrimary && "text-xl md:text-2xl"
+          )}>
+            {description}
+          </p>
+        </div>
         
         {/* Play Button - Central, always visible */}
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center pt-16 md:pt-20">
           <div className={cn(
             "flex items-center justify-center rounded-full bg-primary/90 text-primary-foreground shadow-2xl",
             "transition-transform duration-200 active:scale-90",
@@ -70,25 +89,6 @@ const ProductCard = ({
             Featured
           </div>
         )}
-      </div>
-
-      {/* Content - Text overlay on image */}
-      <div className={cn(
-        "absolute bottom-0 left-0 right-0 p-6 md:p-8 text-center",
-        isPrimary && "p-8 md:p-10"
-      )}>
-        <h3 className={cn(
-          "card-title mb-2 text-white drop-shadow-lg",
-          isPrimary && "text-3xl md:text-4xl"
-        )}>
-          {title}
-        </h3>
-        <p className={cn(
-          "card-description text-white/90 drop-shadow-md",
-          isPrimary && "text-xl md:text-2xl"
-        )}>
-          {description}
-        </p>
       </div>
     </a>
   );
