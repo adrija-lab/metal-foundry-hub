@@ -72,9 +72,9 @@ const ProductCard = ({
         )}
       </div>
 
-      {/* Content - Semi-transparent centered text container */}
+      {/* Content - Clean text without background */}
       <div className={cn(
-        "card-text-container p-6 md:p-8",
+        "p-6 md:p-8 text-center",
         isPrimary && "p-8 md:p-10"
       )}>
         <h3 className={cn(

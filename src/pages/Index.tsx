@@ -46,15 +46,15 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
             {/* Flagship Range */}
             <ProductCard
-              title="FLAGSHIP RANGE"
-              description="Reliable Materials, Perfect Casts, Guaranteed every time"
+              title="Flagship Range"
+              description="Reliable Materials, Perfect Casts, Guaranteed Every Time"
               thumbnail={flagshipThumb}
               href={VIDEO_URLS.flagship}
             />
 
             {/* Scrap Recycling */}
             <ProductCard
-              title="SCRAP RECYCLING"
+              title="Scrap Recycling"
               description="Standardized Metal Scrap for your Melting Needs"
               thumbnail={scrapThumb}
               href={VIDEO_URLS.scrap}
