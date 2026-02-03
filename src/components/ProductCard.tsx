@@ -72,19 +72,19 @@ const ProductCard = ({
         )}
       </div>
 
-      {/* Content - Clean text without background */}
+      {/* Content - Text overlay on image */}
       <div className={cn(
-        "p-6 md:p-8 text-center",
+        "absolute bottom-0 left-0 right-0 p-6 md:p-8 text-center",
         isPrimary && "p-8 md:p-10"
       )}>
         <h3 className={cn(
-          "card-title mb-3",
+          "card-title mb-2 text-white drop-shadow-lg",
           isPrimary && "text-3xl md:text-4xl"
         )}>
           {title}
         </h3>
         <p className={cn(
-          "card-description",
+          "card-description text-white/90 drop-shadow-md",
           isPrimary && "text-xl md:text-2xl"
         )}>
           {description}
