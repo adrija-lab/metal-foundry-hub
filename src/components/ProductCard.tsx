@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { Play } from "lucide-react";
 
 interface ProductCardProps {
   title: string;
@@ -23,23 +24,45 @@ const ProductCard = ({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "group block cursor-pointer",
+        "group block cursor-pointer touch-manipulation",
         isPrimary ? "exhibition-card-primary" : "exhibition-card",
         className
       )}
+      data-tab={title.toLowerCase().replace(/\s+/g, '-')}
     >
-      {/* Thumbnail */}
+      {/* Thumbnail with Play Button Overlay */}
       <div className="relative overflow-hidden">
         <img
           src={thumbnail}
           alt={title}
           className={cn(
-            "w-full object-cover transition-transform duration-500 group-hover:scale-110",
+            "w-full object-cover",
             isPrimary ? "h-64 md:h-80 lg:h-96" : "h-48 md:h-56 lg:h-64"
           )}
         />
+        
         {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/20 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/30 to-transparent" />
+        
+        {/* Play Button - Central, always visible */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className={cn(
+            "flex items-center justify-center rounded-full bg-primary/90 text-primary-foreground shadow-2xl",
+            "transition-transform duration-200 active:scale-90",
+            isPrimary 
+              ? "h-24 w-24 md:h-28 md:w-28 lg:h-32 lg:w-32" 
+              : "h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24"
+          )}>
+            <Play 
+              className={cn(
+                "ml-1 fill-current",
+                isPrimary 
+                  ? "h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16" 
+                  : "h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12"
+              )} 
+            />
+          </div>
+        </div>
         
         {/* Primary badge */}
         {isPrimary && (
@@ -49,13 +72,13 @@ const ProductCard = ({
         )}
       </div>
 
-      {/* Content */}
+      {/* Content - Semi-transparent centered text container */}
       <div className={cn(
-        "p-6 md:p-8",
+        "card-text-container p-6 md:p-8",
         isPrimary && "p-8 md:p-10"
       )}>
         <h3 className={cn(
-          "card-title mb-3 transition-colors duration-300 group-hover:text-primary",
+          "card-title mb-3",
           isPrimary && "text-3xl md:text-4xl"
         )}>
           {title}
@@ -67,28 +90,10 @@ const ProductCard = ({
           {description}
         </p>
         
-        {/* Hover indicator */}
-        <div className="mt-4 flex items-center gap-2 text-primary opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-2">
-          <span className="font-semibold">Watch Video</span>
-          <svg
-            className="h-5 w-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
+        {/* Tap to play hint */}
+        <div className="mt-4 flex items-center justify-center gap-2 text-primary">
+          <Play className="h-5 w-5 fill-current" />
+          <span className="font-semibold" style={{ fontFamily: 'Oxanium, sans-serif' }}>Tap to Play</span>
         </div>
       </div>
     </a>

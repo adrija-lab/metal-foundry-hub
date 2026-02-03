@@ -60,6 +60,8 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        urbanist: ['Urbanist', 'sans-serif'],
+        oxanium: ['Oxanium', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
