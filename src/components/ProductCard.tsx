@@ -89,12 +89,6 @@ const ProductCard = ({
         )}>
           {description}
         </p>
-        
-        {/* Tap to play hint */}
-        <div className="mt-4 flex items-center justify-center gap-2 text-primary">
-          <Play className="h-5 w-5 fill-current" />
-          <span className="font-semibold" style={{ fontFamily: 'Oxanium, sans-serif' }}>Tap to Play</span>
-        </div>
       </div>
     </a>
   );
